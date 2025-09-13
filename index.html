@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detailed Europe Trip Itinerary | Oct-Nov 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: Based on the user request, the structure has been converted to a linear, single-scroll document. All tabbed and accordion navigation has been removed. The application now presents information top-to-bottom: a high-level summary, the budget chart, followed by the three distinct phases of the trip ("Madrid Welcome," "Central Europe Express," "Madrid Farewell") as sequential, fully expanded sections. The "Central Europe Express" section is a series of detailed daily cards. This structure prioritizes immediate access to all information in a traditional report format, eliminating clicks and interactions for a straightforward reading experience. -->
+    <!-- Visualization & Content Choices: 
+        1. Navigation (Tabs/Accordion): Removed. The goal is now a simple, linear presentation, so all interactive navigation was stripped out.
+        2. Daily Plan: Report Info -> Hyper-detailed daily schedules. Goal -> Organize. Viz -> A series of static, styled content cards, one for each day. Interaction -> None (previously an accordion). Justification -> Meets the user's explicit request for a single-scroll layout with all information visible. Method -> HTML/Tailwind CSS.
+        3. Budget Breakdown: Report Info -> Overall cost categories. Goal -> Inform. Viz -> Donut Chart. Interaction -> Static. Justification -> Still provides a valuable high-level financial summary at the top of the detailed plan. Library -> Chart.js.
+        4. Links & Prices: Report Info -> Specific booking information. Goal -> Inform/Action. Viz -> Styled text and links. Justification -> Retained to ensure the itinerary remains actionable. Method -> HTML `<a>` tags.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8;
+            color: #4B4B4B;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 350px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-7xl">
+        <header class="text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#6B5F51]">Detailed Itinerary: The Alpine Explorer</h1>
+            <p class="text-lg text-gray-600 mt-2">Your Complete Day-by-Day Guide for October 15 - November 8, 2025</p>
+        </header>
+
+        <section id="summary" class="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-12">
+            <div class="lg:col-span-3 bg-white rounded-2xl shadow-sm p-8">
+                <h2 class="text-2xl font-bold text-[#8D7B68] mb-4 text-center">Plan Overview</h2>
+                <p class="text-gray-600 mb-6">This is your comprehensive, day-by-day guide for the "Alpine Explorer" itinerary. It has been updated with detailed activity suggestions, schedules, estimated prices, and booking links to make your planning seamless. The trip is structured in three parts, with your core European tour flanked by relaxing weeks with family in Madrid.</p>
+                <div class="grid grid-cols-2 gap-4 text-center">
+                    <div class="bg-[#F7F3EE] p-4 rounded-xl">
+                        <p class="text-3xl font-bold text-[#A4907C]">€7,700</p>
+                        <p class="text-gray-600 text-sm">Est. Total Budget</p>
+                    </div>
+                    <div class="bg-[#F7F3EE] p-4 rounded-xl">
+                        <p class="text-3xl font-bold text-[#A4907C]">11 Days</p>
+                        <p class="text-gray-600 text-sm">Core Europe Tour</p>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:col-span-2 bg-white rounded-2xl shadow-sm p-8">
+                 <h2 class="text-2xl font-bold text-[#8D7B68] mb-4 text-center">Budget Breakdown</h2>
+                <div class="chart-container">
+                    <canvas id="budgetChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="detailed-plan">
+            <section id="part1" class="mb-12">
+                <h3 class="text-3xl font-bold text-[#6B5F51] mb-6 text-center">Part 1: Madrid Welcome (Oct 15 - 21)</h3>
+                <div class="bg-white rounded-2xl shadow-sm p-8">
+                    <p class="text-gray-600">Your first week is dedicated to enjoying time with family and easing into your European adventure. With accommodation covered, your only costs are daily expenses like food and local attractions. This is a perfect, relaxed start to your journey.</p>
+                    <div class="mt-4 text-gray-700 space-y-2">
+                        <p><strong><span class="font-semibold text-[#8D7B68]">Focus:</span></strong> Family time, overcoming jet lag, and leisurely exploring Madrid.</p>
+                        <p><strong><span class="font-semibold text-[#8D7B68]">Accommodation:</span></strong> Free (with family).</p>
+                        <p><strong><span class="font-semibold text-[#8D7B68]">Suggested Activities:</span></strong> Revisit favorite spots, enjoy long family meals, explore local markets like Mercado de San Miguel, or take a day trip to nearby Toledo or Segovia.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="part2" class="mb-12">
+                <!-- Content will be injected by JavaScript -->
+            </section>
+
+            <section id="part3" class="mb-12">
+                <h3 class="text-3xl font-bold text-[#6B5F51] mb-6 text-center">Part 3: Madrid Farewell (Nov 2 - 8)</h3>
+                <div class="bg-white rounded-2xl shadow-sm p-8">
+                    <p class="text-gray-600">After your exciting tour, you'll return to Madrid for a final week with family. This is the perfect time to unwind, share stories from your travels, and enjoy the last few days of your vacation before flying home.</p>
+                     <div class="mt-4 text-gray-700 space-y-2">
+                        <p><strong><span class="font-semibold text-[#8D7B68]">Focus:</span></strong> Relaxing post-tour, souvenir shopping, and final family gatherings.</p>
+                        <p><strong><span class="font-semibold text-[#8D7B68]">Accommodation:</span></strong> Free (with family).</p>
+                        <p><strong><span class="font-semibold text-[#8D7B68]">Departure Day (Nov 8):</span></strong> Enjoy a final Spanish breakfast and head to Madrid-Barajas Airport (MAD) for your flight home.</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <footer class="text-center mt-12 text-gray-500">
+            <p>All prices are estimates based on advance booking and are subject to change. Have a wonderful trip!</p>
+        </footer>
+    </div>
+
+    <script>
+        const travelData = {
+            budget: {
+                'Intra-Europe Flights & Trains': 2000,
+                'Accommodation (10 nights)': 2000,
+                'Food & Dining': 2200,
+                'Activities & Sightseeing': 1500,
+            },
+            tourPlan: [
+                {
+                    day: "Day 8 (Oct 22): Travel to Amsterdam",
+                    title: "Flight to the City of Canals",
+                    content: `
+                        <p class="mb-4"><strong>Schedule:</strong> Depart from Madrid (MAD) in the morning and arrive at Amsterdam Schiphol (AMS) by early afternoon.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-gray-50 p-3 rounded-lg">
+                                <h4 class="font-bold text-[#8D7B68]">Travel</h4>
+                                <p><strong>Flight:</strong> Madrid to Amsterdam</p>
+                                <p><strong>Airlines:</strong> Iberia, Air Europa, KLM</p>
+                                <p><strong>Est. Price:</strong> €150 - €250 per person</p>
+                                <a href="https://www.skyscanner.com/" target="_blank" class="text-blue-600 hover:underline">Search Flights &rarr;</a>
+                            </div>
+                            <div class="bg-gray-50 p-3 rounded-lg">
+                                <h4 class="font-bold text-[#8D7B68]">Airport Transfer</h4>
+                                <p><strong>Option:</strong> Train from Schiphol to Centraal Station</p>
+                                <p><strong>Time:</strong> ~17 minutes, very frequent.</p>
+                                <p><strong>Est. Price:</strong> €5-€6 per person</p>
+                                <a href="https://www.ns.nl/en" target="_blank" class="text-blue-600 hover:underline">NS Dutch Railways &rarr;</a>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <h4 class="font-bold text-[#8D7B68]">Evening</h4>
+                            <p>Check into your accommodation, then take a leisurely walk through the Jordaan district to get your first feel of the city. Enjoy dinner at a cozy canal-side restaurant.</p>
+                        </div>
+                    `
+                },
+                {
+                    day: "Day 9-10 (Oct 23-24): Amsterdam Exploration",
+                    title: "Museums, History, and Canals",
+                    content: `
+                        <p class="mb-4"><strong>Schedule:</strong> Two full days dedicated to Amsterdam's world-class museums and historic sites. Book all museum tickets online well in advance, especially the Anne Frank House.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                             <div class="bg-gray-50 p-3 rounded-lg space-y-2">
+                                <h4 class="font-bold text-[#8D7B68]">Accommodation (3 nights)</h4>
+                                <p><strong>Hotel Option:</strong> The Hoxton or citizenM. (Est. €180-€250/night)</p>
+                                <p><strong>Airbnb Option:</strong> Private apartment in Jordaan or De Pijp. (Est. €150-€220/night)</p>
+                                <a href="https://www.booking.com/city/nl/amsterdam.html" target="_blank" class="text-blue-600 hover:underline">Search Hotels &rarr;</a>
+                            </div>
+                            <div class="bg-gray-50 p-3 rounded-lg space-y-2">
+                                <h4 class="font-bold text-[#8D7B68]">Key Activities</h4>
+                                <p><strong>Rijksmuseum:</strong> €25 pp. <a href="https://www.rijksmuseum.nl/en" target="_blank" class="text-blue-600 hover:underline">Book Tickets</a></p>
+                                <p><strong>Anne Frank House:</strong> €16 pp (must book weeks/months ahead). <a href="https://www.annefrank.org/en/" target="_blank" class="text-blue-600 hover:underline">Book Tickets</a></p>
+                                <p><strong>Canal Cruise:</strong> ~€20 pp. Numerous operators available at the docks.</p>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <h4 class="font-bold text-[#8D7B68]">Tip</h4>
+                            <p>Consider renting bikes for one day to explore like a local. Visit the Vondelpark and the trendy De Pijp neighborhood, famous for the Albert Cuyp Market.</p>
+                        </div>
+                    `
+                },
+                {
+                    day: "Day 11 (Oct 25): Journey to Zürich",
+                    title: "From Canals to Swiss Alps",
+                    content: `
+                        <p class="mb-4"><strong>Schedule:</strong> Morning departure from Amsterdam to Zürich. The overnight train is a fantastic, scenic option that also saves you a night's accommodation cost.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-gray-50 p-3 rounded-lg">
+                                <h4 class="font-bold text-[#8D7B68]">Travel Option 1: Overnight Train</h4>
+                                <p><strong>Train:</strong> ÖBB Nightjet</p>
+                                <p><strong>Time:</strong> ~11 hours (depart evening, arrive morning)</p>
+                                <p><strong>Est. Price:</strong> €50 (seat) to €150 (sleeper cabin) pp</p>
+                                <a href="https://www.nightjet.com/en/" target="_blank" class="text-blue-600 hover:underline">Book Nightjet &rarr;</a>
+                            </div>
+                            <div class="bg-gray-50 p-3 rounded-lg">
+                                <h4 class="font-bold text-[#8D7B68]">Travel Option 2: Flight</h4>
+                                <p><strong>Flight:</strong> Amsterdam (AMS) to Zürich (ZRH)</p>
+                                <p><strong>Time:</strong> ~1.5 hours flight time</p>
+                                <p><strong>Est. Price:</strong> €100 - €200 per person</p>
+                                <a href="https://www.skyscanner.com/" target="_blank" class="text-blue-600 hover:underline">Search Flights &rarr;</a>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <h4 class="font-bold text-[#8D7B68]">Arrival in Zürich</h4>
+                            <p>Upon arrival (either morning from the train or afternoon from a flight), take the efficient train from Zürich Airport to the main station (Hauptbahnhof). Cost: ~€7. Check into your hotel and spend the afternoon exploring the Old Town (Altstadt) and walking along Lake Zürich.</p>
+                        </div>
+                    `
+                },
+                {
+                    day: "Day 12-13 (Oct 26-27): Swiss Scenery",
+                    title: "Zürich & Alpine Day Trip",
+                    content: `
+                        <p class="mb-4"><strong>Schedule:</strong> One day to explore Zürich's cultural offerings and another for a classic Swiss mountain experience.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-gray-50 p-3 rounded-lg space-y-2">
+                                <h4 class="font-bold text-[#8D7B68]">Accommodation (3 nights)</h4>
+                                <p><strong>Hotel Option:</strong> Motel One Zürich or 25hours Hotel Langstrasse. (Est. €200-€300/night)</p>
+                                <p><strong>Airbnb Option:</strong> Apartment near the main train station. (Est. €180-€280/night)</p>
+                                <a href="https://www.booking.com/city/ch/zurich.html" target="_blank" class="text-blue-600 hover:underline">Search Hotels &rarr;</a>
+                            </div>
+                            <div class="bg-gray-50 p-3 rounded-lg space-y-2">
+                                <h4 class="font-bold text-[#8D7B68]">Activities</h4>
+                                <p><strong>Zürich:</strong> Walk the Bahnhofstrasse for window shopping, visit the Kunsthaus Zürich art museum (€24 pp), and climb the Grossmünster tower for panoramic views.</p>
+                                <p><strong>Day Trip to Lucerne/Mt. Pilatus:</strong> Take a train to Lucerne (~1 hr), explore the charming city, then take the cable car up Mt. Pilatus for incredible views. (Train + Gondola round trip ~€100-€120 pp).</p>
+                            </div>
+                        </div>
+                    `
+                },
+                {
+                    day: "Day 14 (Oct 28): Travel to Vienna",
+                    title: "To the Imperial Capital",
+                    content: `
+                        <p class="mb-4"><strong>Schedule:</strong> Another opportunity for a scenic and comfortable overnight train, taking you directly from Switzerland to the heart of Austria.</p>
+                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-gray-50 p-3 rounded-lg">
+                                <h4 class="font-bold text-[#8D7B68]">Travel Option 1: Overnight Train</h4>
+                                <p><strong>Train:</strong> ÖBB Nightjet</p>
+                                <p><strong>Time:</strong> ~10 hours</p>
+                                <p><strong>Est. Price:</strong> €50 (seat) to €150 (sleeper cabin) pp</p>
+                                <a href="https://www.nightjet.com/en/" target="_blank" class="text-blue-600 hover:underline">Book Nightjet &rarr;</a>
+                            </div>
+                            <div class="bg-gray-50 p-3 rounded-lg">
+                                <h4 class="font-bold text-[#8D7B68]">Travel Option 2: Flight</h4>
+                                <p><strong>Flight:</strong> Zürich (ZRH) to Vienna (VIE)</p>
+                                <p><strong>Time:</strong> ~1.5 hours flight time</p>
+                                <p><strong>Est. Price:</strong> €120 - €220 per person</p>
+                                <a href="https://www.skyscanner.com/" target="_blank" class="text-blue-600 hover:underline">Search Flights &rarr;</a>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <h4 class="font-bold text-[#8D7B68]">Arrival in Vienna</h4>
+                            <p>Arrive at Vienna's Hauptbahnhof (train) or airport (flight). The City Airport Train (CAT) is the fastest way from the airport to the city center (~16 mins, €15). Settle into your accommodation. For the evening, attend a classical music concert at a venue like the Musikverein or St. Stephen's Cathedral.</p>
+                        </div>
+                    `
+                },
+                {
+                    day: "Day 15-17 (Oct 29-31): Imperial Vienna",
+                    title: "Palaces, Art, and Coffee Houses",
+                    content: `
+                        <p class="mb-4"><strong>Schedule:</strong> Three full days to soak in the history, art, and culture of Vienna.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                             <div class="bg-gray-50 p-3 rounded-lg space-y-2">
+                                <h4 class="font-bold text-[#8D7B68]">Accommodation (4 nights)</h4>
+                                <p><strong>Hotel Option:</strong> Ruby Sofie Hotel Vienna or Hotel MOTTO. (Est. €150-€250/night)</p>
+                                <p><strong>Airbnb Option:</strong> Apartment in Neubau or near the Naschmarkt. (Est. €120-€200/night)</p>
+                                <a href="https://www.booking.com/city/at/vienna.html" target="_blank" class="text-blue-600 hover:underline">Search Hotels &rarr;</a>
+                            </div>
+                            <div class="bg-gray-50 p-3 rounded-lg space-y-2">
+                                <h4 class="font-bold text-[#8D7B68]">Key Activities</h4>
+                                <p><strong>Schönbrunn Palace:</strong> (Grand Tour) €34 pp. <a href="https://www.schoenbrunn.at/en/" target="_blank" class="text-blue-600 hover:underline">Book Tickets</a></p>
+                                <p><strong>Hofburg Palace:</strong> (Sisi Museum & Imperial Apartments) €20 pp. <a href="https://www.sisimuseum-hofburg.at/en/" target="_blank" class="text-blue-600 hover:underline">Book Tickets</a></p>
+                                <p><strong>Day Trip to Salzburg:</strong> Consider a day trip by train (~2.5 hrs each way) to explore Mozart's birthplace.</p>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <h4 class="font-bold text-[#8D7B68]">Cultural Tip</h4>
+                            <p>Don't miss the Viennese coffee house culture. Visit classics like Café Central or Café Sacher (for the famous Sachertorte) for coffee and cake. Explore the vibrant Naschmarkt for lunch.</p>
+                        </div>
+                    `
+                },
+                {
+                    day: "Day 18 (Nov 1): Return to Madrid",
+                    title: "Flight Back to Spain",
+                    content: `
+                        <p class="mb-4"><strong>Schedule:</strong> Enjoy a final Viennese breakfast before heading to Vienna International Airport (VIE) for your flight back to Madrid.</p>
+                        <div class="bg-gray-50 p-3 rounded-lg">
+                            <h4 class="font-bold text-[#8D7B68]">Travel</h4>
+                            <p><strong>Flight:</strong> Vienna to Madrid</p>
+                            <p><strong>Airlines:</strong> Ryanair, Iberia</p>
+                            <p><strong>Est. Price:</strong> €80 - €180 per person</p>
+                            <a href="https://www.skyscanner.com/" target="_blank" class="text-blue-600 hover:underline">Search Flights &rarr;</a>
+                        </div>
+                        <div class="mt-4">
+                            <h4 class="font-bold text-[#8D7B68]">Evening</h4>
+                            <p>Arrive back in Madrid in the afternoon, concluding the European tour part of your trip. Reconnect with your family for a welcome-back dinner.</p>
+                        </div>
+                    `
+                },
+            ]
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const budgetCtx = document.getElementById('budgetChart').getContext('2d');
+            new Chart(budgetCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(travelData.budget),
+                    datasets: [{
+                        data: Object.values(travelData.budget),
+                        backgroundColor: ['#8D7B68', '#A4907C', '#C8B6A6', '#EAE3D9'],
+                        borderColor: '#FFFFFF',
+                        borderWidth: 4,
+                        hoverOffset: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { padding: 15, font: { size: 12 } } },
+                        tooltip: { callbacks: { label: (c) => `${c.label}: €${c.raw.toLocaleString()}` } }
+                    },
+                    cutout: '60%'
+                }
+            });
+
+            function renderExpandedPlan() {
+                const container = document.getElementById('part2');
+                const planHTML = travelData.tourPlan.map(item => `
+                    <div class="bg-white rounded-2xl shadow-sm p-6 mb-6">
+                        <h4 class="text-xl font-bold text-[#6B5F51] mb-1">${item.day}</h4>
+                        <p class="text-lg text-gray-600 mb-4">${item.title}</p>
+                        <div>${item.content}</div>
+                    </div>
+                `).join('');
+
+                container.innerHTML = `
+                    <h3 class="text-3xl font-bold text-[#6B5F51] mb-6 text-center">Part 2: Central Europe Express</h3>
+                    ${planHTML}
+                `;
+            }
+
+            renderExpandedPlan();
+        });
+    </script>
+</body>
+</html>
+
